@@ -1,3 +1,5 @@
+package modelo;
+
 public class Livro {
     private String titulo;
     private String autor;
@@ -7,6 +9,7 @@ public class Livro {
     private int quantidadeDisponivel;
     private boolean disponivel;
 
+    //construtor inicial
     private Livro(String titulo, String autor, String anoPublucacao, String isbn, String categoria, int quantidadeDisponivel, boolean disponivel) {
         this.titulo = titulo;
         this.autor = autor;
@@ -14,9 +17,10 @@ public class Livro {
         this.isbn = isbn;
         this.categoria = categoria;
         this.quantidadeDisponivel = quantidadeDisponivel;
-        this.disponivel = true;
+        this.disponivel = disponivel;
     }
 
+    //getters e setters
     public String getTitulo() {
         return titulo;
     }
@@ -71,5 +75,8 @@ public class Livro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public static class Emprestimo {
     }
 }
