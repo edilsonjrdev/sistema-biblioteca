@@ -10,7 +10,7 @@ public class Livro {
     private boolean disponivel;
 
     //construtor inicial
-    private Livro(String titulo, String autor, String anoPublucacao, String isbn, String categoria, int quantidadeDisponivel, boolean disponivel) {
+    public Livro(String titulo, String autor, String anoPublicacao, String isbn, String categoria, int quantidadeDisponivel, boolean disponivel) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
