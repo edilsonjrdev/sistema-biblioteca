@@ -4,22 +4,20 @@ import java.time.LocalDate;
 
 public class Emprestimo {
     private Livro livro;
-    private Leitor leitor;
+    private Usuario usuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucaoPrevista;
     private LocalDate dataDevolucaoReal;
-    private double multa;
-    private boolean ativo;
+    private Funcionario responsavel;
 
     //construtor inicial
-    public Emprestimo(Livro livro, Leitor leitor, LocalDate dataEmprestimo, LocalDate dataDevolucaoPrevista, LocalDate dataDevolucaoReal, double multa, boolean ativo) {
+    public Emprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucaoPrevista, LocalDate dataDevolucaoReal, Funcionario responsavel) {
         this.livro = livro;
-        this.leitor = leitor;
+        this.usuario = usuario;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
         this.dataDevolucaoReal = dataDevolucaoReal;
-        this.multa = multa;
-        this.ativo = ativo;
+        this.responsavel = responsavel;
     }
 
     //métodos getters e setters
@@ -31,12 +29,12 @@ public class Emprestimo {
         this.livro = livro;
     }
 
-    public Leitor getLeitor() {
-        return leitor;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setLeitor(Leitor leitor) {
-        this.leitor = leitor;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public LocalDate getDataEmprestimo() {
@@ -63,19 +61,11 @@ public class Emprestimo {
         this.dataDevolucaoReal = dataDevolucaoReal;
     }
 
-    public double getMulta() {
-        return multa;
+    public Funcionario getResponsavel() {
+        return responsavel;
     }
 
-    public void setMulta(double multa) {
-        this.multa = multa;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setResponsavel(Funcionario responsavel) {
+        this.responsavel = responsavel;
     }
 }

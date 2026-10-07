@@ -3,7 +3,7 @@ package interfaces;
 import modelo.Livro;
 
 public interface LivroInterface {
-    public void adicionarLivro(Livro livro);
+    public void cadastrarLivro(Livro livro);
 
     public Livro[] listarLivros();
 

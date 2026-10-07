@@ -8,9 +8,12 @@ public class Usuario {
     private String email;
     private String login;
     private String senha;
+    private double multa;
+    private boolean ativo;
+    private int livrosEmprestados;
 
     //construtor inicial
-    public Usuario(String nome, String cpf, String endereco, String telefone, String email, String login, String senha) {
+    public Usuario(String nome, String cpf, String endereco, String telefone, String email, String login, String senha, double multa, boolean bloqueado, int livrosEmprestados) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -18,9 +21,12 @@ public class Usuario {
         this.email = email;
         this.login = login;
         this.senha = senha;
+        this.multa = 0.0;
+        this.ativo = true;
+        this.livrosEmprestados = 0;
     }
 
-    //métodos getters and setters
+    //métodos getters e setters
     public String getNome() {
         return nome;
     }
@@ -75,5 +81,29 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public double getMulta() {
+        return multa;
+    }
+
+    public void setMulta(double multa) {
+        this.multa = multa;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public int getLivrosEmprestados() {
+        return livrosEmprestados;
+    }
+
+    public void setLivrosEmprestados(int livrosEmprestados) {
+        this.livrosEmprestados = livrosEmprestados;
     }
 }

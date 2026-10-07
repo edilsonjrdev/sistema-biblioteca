@@ -30,8 +30,8 @@ public class UsuarioRepositorio implements UsuarioInterface {
         this.usuarios = usuarios;
     }
 
-    //adicionar usuário
-    public void adicionarUsuario(Usuario usuario) {
+    //cadastrar usuário
+    public void cadastrarUsuario(Usuario usuario) {
         usuarios[contador] = usuario;
         contador++;
     }

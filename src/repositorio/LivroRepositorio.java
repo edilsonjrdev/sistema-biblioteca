@@ -31,8 +31,8 @@ public class LivroRepositorio implements LivroInterface {
         this.livros = livros;
     }
 
-    //adicionar livro
-    public void adicionarLivro(Livro livro) {
+    //cadastrar livro
+    public void cadastrarLivro(Livro livro) {
         livros[contador] = livro;
         contador++;
     }

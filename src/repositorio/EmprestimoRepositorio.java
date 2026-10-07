@@ -2,7 +2,7 @@ package repositorio;
 
 import interfaces.EmprestimoInterface;
 import modelo.Emprestimo;
-import modelo.Leitor;
+import modelo.Usuario;
 import modelo.Livro;
 
 public class EmprestimoRepositorio implements EmprestimoInterface {
@@ -32,8 +32,8 @@ public class EmprestimoRepositorio implements EmprestimoInterface {
         this.emprestimos = emprestimos;
     }
 
-    //adicionar empréstimo
-    public void adicionarEmprestimo(Emprestimo emprestimo) {
+    //registrar empréstimo
+    public void registrarEmprestimo(Emprestimo emprestimo) {
         emprestimos[contador] = emprestimo;
         contador++;
     }
@@ -54,9 +54,9 @@ public class EmprestimoRepositorio implements EmprestimoInterface {
     }
 
     //buscar empréstimo por leitor
-    public Emprestimo buscarEmprestimoPorLeitor(Leitor leitor) {
+    public Emprestimo buscarEmprestimoPorUsuario(Usuario usuario) {
         for (int i = 0; i < contador; i++) {
-            if (emprestimos[i] != null && emprestimos[i].getLeitor().equals(leitor)) {
+            if (emprestimos[i] != null && emprestimos[i].getUsuario().equals(usuario)) {
                 return emprestimos[i];
             }
         }

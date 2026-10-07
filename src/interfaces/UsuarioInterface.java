@@ -3,7 +3,7 @@ package interfaces;
 import modelo.Usuario;
 
 public interface UsuarioInterface {
-    public void adicionarUsuario(Usuario usuario);
+    public void cadastrarUsuario(Usuario usuario);
 
     public Usuario[] listarUsuarios();
 
@@ -12,4 +12,6 @@ public interface UsuarioInterface {
     public Usuario buscarUsuarioPorCPF(String cpf);
 
     public boolean removerUsuario(String cpf);
+
+
 }
