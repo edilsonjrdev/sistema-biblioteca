@@ -4,12 +4,12 @@ import interfaces.UsuarioInterface;
 import modelo.Usuario;
 
 public class UsuarioRepositorio implements UsuarioInterface {
-    private int contador = 0;
+    private int contador;
     private Usuario[] usuarios = new Usuario[1000];
 
     //construtor inicial
-    public UsuarioRepositorio(int contador, Usuario[] usuarios) {
-        this.contador = 0;
+    public UsuarioRepositorio() {
+        this.contador = contador;
         this.usuarios = new Usuario[1000];
     }
 

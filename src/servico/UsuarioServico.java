@@ -28,7 +28,7 @@ public class UsuarioServico {
     public Usuario buscarUsuarioPorCPF(String cpf) throws UsuarioNaoEncontradoException {
         Usuario usuario = usuarioRepo.buscarUsuarioPorCPF(cpf);
         if (usuario == null) {
-            throw new UsuarioNaoEncontradoException("O usuário com o CPF:" + cpf + "não foi encontrado.");
+            throw new UsuarioNaoEncontradoException("O usuário com o CPF: " + cpf + " não foi encontrado.");
         }
         return usuario;
     }
@@ -37,7 +37,7 @@ public class UsuarioServico {
     public Usuario buscarUsuarioPorNome(String nome) throws UsuarioNaoEncontradoException {
         Usuario usuario = usuarioRepo.buscarUsuarioPorNome(nome);
         if (usuario == null) {
-            throw new UsuarioNaoEncontradoException("Não foi encontrado nenhum usuário chamado" + nome);
+            throw new UsuarioNaoEncontradoException("Não foi encontrado nenhum usuário chamado " + nome);
         }
         return usuario;
     }

@@ -8,13 +8,12 @@ public class LivroRepositorio implements LivroInterface {
     private Livro[] livros = new Livro[1000];
 
     //construtor inicial
-    public LivroRepositorio(int contador, Livro[] livros) {
+    public LivroRepositorio() {
         this.contador = 0;
         this.livros = new Livro[1000];
     }
 
     //métodos getters e setters
-
     public int getContador() {
         return contador;
     }

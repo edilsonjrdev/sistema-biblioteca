@@ -23,10 +23,15 @@ public class EmprestimoServico {
         this.livroServico = livroServico;
     }
 
+    //listar empréstimos
+    public Emprestimo[] listarEmprestimos() {
+        return emprestimoRepo.listarEmprestimos();
+    }
+
     //registrar empréstimo
     public void registrarEmprestimo(String cpf, String titulo, String login, String senha) throws Exception {
         usuarioServico.autenticarUsuario(login, senha);
-        Funcionario responsavel = this.identificarFuncionarioAdministrador(login);
+        Usuario responsavel = this.identificarFuncionarioAdministrador(login);
 
         Usuario usuario = usuarioServico.buscarUsuarioPorCPF(cpf);
         Livro livro = livroServico.buscarLivroPorTitulo(titulo);
@@ -51,7 +56,8 @@ public class EmprestimoServico {
         LocalDate dataDevolucaoPrevista = dataHoje.plusDays(15);
 
 
-        Emprestimo novoEmprestimo = new Emprestimo(livro, usuario, dataHoje, dataDevolucaoPrevista, null, responsavel);
+        Funcionario funcionarioResponsavel = (responsavel instanceof Funcionario) ? (Funcionario) responsavel : null;
+        Emprestimo novoEmprestimo = new Emprestimo(livro, usuario, dataHoje, dataDevolucaoPrevista, null, funcionarioResponsavel);
         emprestimoRepo.registrarEmprestimo(novoEmprestimo);
     }
 
@@ -111,21 +117,20 @@ public class EmprestimoServico {
         return emprestimo;
     }
 
-    private Funcionario identificarFuncionarioAdministrador(String login) throws Exception {
-        Funcionario responsavel = null;
+    private Usuario identificarFuncionarioAdministrador(String login) throws Exception {
+        Usuario responsavel = null;
         Usuario[] usuarios = usuarioServico.listarUsuarios();
 
         for (int i = 0; i < usuarios.length; i++) {
             if (usuarios[i] != null && usuarios[i].getLogin().equals(login)) {
-                // Prevenção de ClassCastException usando instanceof antes da conversão
-                if (usuarios[i] instanceof Funcionario) {
-                    responsavel = (Funcionario) usuarios[i];
+                if (usuarios[i].admin()) {
+                    responsavel = usuarios[i];
                 }
                 break;
             }
         }
 
-        if (responsavel == null || !responsavel.isAdmin()) {
+        if (responsavel == null) {
             throw new SecurityException("Operação negada: Apenas funcionários administradores podem registrar empréstimos.");
         }
         return responsavel;
@@ -156,10 +161,10 @@ public class EmprestimoServico {
 
     //verificar empréstimo
     private void verificarLimiteEmprestimo(Usuario usuario) throws LimiteEmprestimoExcedidoException {
-        if (usuario instanceof Leitor && usuario.getLivrosEmprestados() >= 3) {
+        if (!usuario.admin() && usuario.getLivrosEmprestados() >= 3) {
             throw new LimiteEmprestimoExcedidoException("O leitor atingiu o limite máximo de 3 empréstimos.");
         }
-        if (usuario instanceof Funcionario && usuario.getLivrosEmprestados() >= 5) {
+        if (usuario.admin() && usuario.getLivrosEmprestados() >= 5) {
             throw new LimiteEmprestimoExcedidoException("O funcionário atingiu o limite máximo de 5 empréstimos.");
         }
     }

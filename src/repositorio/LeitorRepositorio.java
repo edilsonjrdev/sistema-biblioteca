@@ -9,7 +9,7 @@ public class LeitorRepositorio implements LeitorInterface {
 
     //construtor inicial
     public LeitorRepositorio(int contador, Leitor[] leitores) {
-        this.contador = 0;
+        this.contador = contador;
         this.leitores = new Leitor[1000];
     }
 

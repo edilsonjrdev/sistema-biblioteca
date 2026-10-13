@@ -11,9 +11,10 @@ public class Usuario {
     private double multa;
     private boolean ativo;
     private int livrosEmprestados;
+    private boolean admin;
 
     //construtor inicial
-    public Usuario(String nome, String cpf, String endereco, String telefone, String email, String login, String senha, double multa, boolean bloqueado, int livrosEmprestados) {
+    public Usuario(String nome, String cpf, String endereco, String telefone, String email, String login, String senha, double multa, boolean ativo, int livrosEmprestados, boolean admin) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -21,9 +22,10 @@ public class Usuario {
         this.email = email;
         this.login = login;
         this.senha = senha;
-        this.multa = 0.0;
-        this.ativo = true;
-        this.livrosEmprestados = 0;
+        this.multa = multa;
+        this.ativo = ativo;
+        this.livrosEmprestados = livrosEmprestados;
+        this.admin = admin;
     }
 
     //métodos getters e setters
@@ -106,4 +108,26 @@ public class Usuario {
     public void setLivrosEmprestados(int livrosEmprestados) {
         this.livrosEmprestados = livrosEmprestados;
     }
+
+    public boolean admin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        admin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario:" +
+                " - NOME: '" + nome + '\'' +
+                " - CPF: '" + cpf + '\'' +
+                " - EMAIL: '" + email + '\'' +
+                " - LOGIN: '" + login + '\'' +
+                " - MULTA: " + multa +
+                " - ATIVO: " + ativo +
+                " - ADMIN: " + admin +
+                "}\n";
+    }
+
 }

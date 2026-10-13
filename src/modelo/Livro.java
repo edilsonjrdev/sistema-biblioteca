@@ -77,6 +77,16 @@ public class Livro {
         this.disponivel = disponivel;
     }
 
-    public static class Emprestimo {
+    @Override
+    public String toString() {
+        return "Livro: " +
+                " - TÍTULO: '" + titulo + '\'' +
+                " - AUTOR: '" + autor + '\'' +
+                " - ANO DE PUBLICAÇÃO: '" + anoPublicacao + '\'' +
+                " - ISBN: '" + isbn + '\'' +
+                " - CATEGORIA: '" + categoria + '\'' +
+                " - QUANTIDADE DISPOVÍVEL: " + quantidadeDisponivel +
+                " - DISPONÍVEL: " + disponivel +
+                "}\n";
     }
 }

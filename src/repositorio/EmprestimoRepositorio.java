@@ -10,8 +10,8 @@ public class EmprestimoRepositorio implements EmprestimoInterface {
     private Emprestimo[] emprestimos = new Emprestimo[1000];
 
     //construtor inicial
-    public EmprestimoRepositorio(int contador, Emprestimo[] emprestimos) {
-        this.contador = 0;
+    public EmprestimoRepositorio() {
+        this.contador = contador;
         this.emprestimos = new Emprestimo[1000];
     }
 

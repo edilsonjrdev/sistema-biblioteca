@@ -4,8 +4,8 @@ public class Leitor extends Usuario {
     private String matricula;
 
     //construtor inicial
-    public Leitor(String nome, String cpf, String endereco, String telefone, String email, String login, String senha, String matricula) {
-        super(nome, cpf, endereco, telefone, email, login, senha);
+    public Leitor(String nome, String cpf, String endereco, String telefone, String email, String login, String senha, double multa, boolean ativo, int livrosEmprestados, String matricula, boolean admin) {
+        super(nome, cpf, endereco, telefone, email, login, senha, multa, ativo, livrosEmprestados, admin);
         this.matricula = matricula;
     }
 

@@ -9,7 +9,7 @@ public class FuncionarioRepositorio implements FuncionarioInterface {
 
     //construtor inicial
     public FuncionarioRepositorio(int contador, Funcionario[] funcionarios) {
-        this.contador = 0;
+        this.contador = contador;
         this.funcionarios = new Funcionario[500];
     }
 
